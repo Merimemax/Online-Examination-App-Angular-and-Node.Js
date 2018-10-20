@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Online-Examination-App": {
+    "OnlineExaminationApp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Online-Examination-App",
+            "outputPath": "dist/OnlineExaminationApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Online-Examination-App:build"
+            "browserTarget": "OnlineExaminationApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Online-Examination-App:build:production"
+              "browserTarget": "OnlineExaminationApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Online-Examination-App:build"
+            "browserTarget": "OnlineExaminationApp:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "Online-Examination-App-e2e": {
+    "OnlineExaminationApp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Online-Examination-App:serve"
+            "devServerTarget": "OnlineExaminationApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Online-Examination-App:serve:production"
+              "devServerTarget": "OnlineExaminationApp:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "Online-Examination-App"
+  "defaultProject": "OnlineExaminationApp"
 }
