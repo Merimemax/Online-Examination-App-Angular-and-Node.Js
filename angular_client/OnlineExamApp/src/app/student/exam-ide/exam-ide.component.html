@@ -1,0 +1,15 @@
+<p>
+  exam-ide works!
+</p>
+
+<td-code-editor 
+        style="height: 200px" 
+        editorStyle="border:0;"
+        flex 
+        theme="vs-dark" 
+        language="javascript"
+        automaticLayout
+        [editorOptions]="{ fontSize:20}"
+        [(ngModel)]="model"
+        (change)="callBackFunc()">
+</td-code-editor>
