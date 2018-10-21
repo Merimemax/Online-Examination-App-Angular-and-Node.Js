@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DBService } from '../services/DB.Service';
 
 @Component({
   selector: 'app-exam-ide',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exam-ide.component.css']
 })
 export class ExamIDEComponent implements OnInit {
-
-  constructor() { }
+questions;
+  constructor(private db:DBService) { }
 
   ngOnInit() {
-  }
+  this.db.getQuestion().subscribe(data=>{ this.questions=data})
+   }
 
 }

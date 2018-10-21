@@ -6,8 +6,8 @@ import {HttpClient} from '@angular/common/http'
 export class DBService{
     constructor(private http:HttpClient){}
     getQuestion(){
-        this.http.get('')
-        .subscribe(data=>console.log(data))
+       return  this.http.get('http://localhost:8000/exam');
+        
     }
 
 }

@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors');
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/studentRoutes');
 const admissionStaffRouter = require('./routes/admissionstaffRoutes');
@@ -14,12 +14,25 @@ const mongoose = require('mongoose');
 const mongodbUri = 'mongodb://merih:me2am1@ds029630.mlab.com:29630/online_examination';
 
 // working for token
-var passport = require('passport');
-require('./api/models/db');
-require('./api/config/passport');
-var routesApi = require('./api/routes/index');
+// var passport = require('passport');
+// require('./api/models/db');
+// require('./api/config/passport');
+// var routesApi = require('./api/routes/index');
+//......configuring cors
 
+
+var corsOptions = {
+  origin: 'http://localhost:4200',
+  credentials:true,
+  methods:['GET', 'PUT', 'POST'],
+  allowedHeaders:'Content-Type',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+
+}
 var app = express();
+app.use(cors(corsOptions));
+//....
+
 
 mongoose.connect(mongodbUri)
 const db = mongoose.connection;
@@ -42,9 +55,9 @@ app.use('/exam', examRouter);
 
 //my code
 //Initialise Passport before using the route middleware
-app.use(passport.initialize());
+//app.use(passport.initialize());
 //  Use the API routes when path starts with /api
-app.use('/api', routesApi);
+//app.use('/api', routesApi);
 
 app.use('*', (req, resp, next) => {
   req.conn = db;

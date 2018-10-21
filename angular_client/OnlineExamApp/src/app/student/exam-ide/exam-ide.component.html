@@ -1,15 +1,29 @@
-<p>
-  exam-ide works!
-</p>
+<h1>Exam Questions</h1>
 
-<td-code-editor 
-        style="height: 200px" 
-        editorStyle="border:0;"
-        flex 
-        theme="vs-dark" 
-        language="javascript"
-        automaticLayout
-        [editorOptions]="{ fontSize:20}"
-        [(ngModel)]="model"
-        (change)="callBackFunc()">
+<div *ngFor="let question of questions" > 
+<div>
+  {{question.examnumber}}   {{question.title}} 
+</div>
+
+<div>
+  {{question.question}}   
+</div>
+<div>
+  <td-code-editor 
+  style="height: 200px" 
+  editorStyle="border:0;"
+  flex 
+  theme="vs-dark" 
+  language="javascript"
+  automaticLayout
+  [editorOptions]="{ fontSize:20}"
+  [(ngModel)]="model"
+  (change)="callBackFunc()">
 </td-code-editor>
+
+</div>
+</div>
+
+
+
+
