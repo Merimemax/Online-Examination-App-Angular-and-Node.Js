@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 import { AdmissionStaffComponent } from './admission-staff/admission-staff.component';
+import { AuthenticationService } from 'src/authentication.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { AdmissionStaffComponent } from './admission-staff/admission-staff.compo
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
