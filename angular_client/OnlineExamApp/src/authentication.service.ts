@@ -63,16 +63,17 @@ export class AuthenticationService {
 
   private request(method: 'post' | 'get', type: 'login' | 'register' | 'profile', user?: TokenPayload): Observable<any> {
     let base;
-
+    const url = 'http://localhost:8000'
     if (method === 'post') {
-      base = this.http.post(`/api/${type}`, user);
+      base = this.http.post(`${url}/api/${type}`, user);
     } else {
-      base = this.http.get(`/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } });
+      base = this.http.get(`${url}/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } });
     }
 
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
+          console.log("token recieved : " + data.token)
           this.saveToken(data.token);
         }
         return data;
@@ -87,6 +88,7 @@ export class AuthenticationService {
   }
 
   public login(user: TokenPayload): Observable<any> {
+    console.log("thanks it worked token " + user.name);
     return this.request('post', 'login', user);
   }
 

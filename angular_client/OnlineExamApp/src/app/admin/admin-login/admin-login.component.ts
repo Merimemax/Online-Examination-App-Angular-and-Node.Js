@@ -9,10 +9,6 @@ import { AuthenticationService, TokenPayload } from '../../../authentication.ser
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
-  credentials: TokenPayload = {
-    email: '',
-    password: ''
-  };
 
   admin: FormGroup;
   constructor(private fb: FormBuilder, private router: Router, private zone: NgZone, private auth: AuthenticationService) { } //
@@ -24,15 +20,26 @@ export class AdminLoginComponent implements OnInit {
       rememberme: true
     });
   }
+
+
+  credentials: TokenPayload = {
+    email: "meetawet13@gmail.com",
+    password: "123456"
+  };
+
+
   logInAdmin() {
-    console.log("you will log in one day dont give up " + this.admin.value.email);
-    console.log("you will log in one day dont give up " + this.admin.value.password);
-    console.log("you will log in one day dont give up " + this.admin.value.rememberme);
+    this.credentials.email = this.admin.value.email;
+    this.credentials.password = this.admin.value.password;
+
+    console.log("email is recieved " + this.credentials.email);
+    console.log("email is recieved " + this.credentials.password);
 
     this.auth.login(this.credentials).subscribe(() => {
       this.zone.run(() => this.router.navigate(['admin/home']));
     }, (err) => {
       console.error(err);
+      console.log("emaa metkek")
     });
   }
 }

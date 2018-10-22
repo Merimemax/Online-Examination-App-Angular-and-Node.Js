@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-creating-exam',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./creating-exam.component.css']
 })
 export class CreatingExamComponent implements OnInit {
-
-  constructor() { }
+  exam: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.exam = this.fb.group({
+      examtitle: [''],
+      examquestion: [''],
+      examnumber: ['']
+    })
   }
 
 }

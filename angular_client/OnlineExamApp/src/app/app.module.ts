@@ -8,6 +8,7 @@ import { routing } from './app-routing.module';
 import { AdmissionStaffComponent } from './admission-staff/admission-staff.component';
 import { AuthenticationService } from 'src/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from 'src/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     routing,
     HttpClientModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
