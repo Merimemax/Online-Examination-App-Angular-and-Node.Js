@@ -6,6 +6,7 @@ import { ExamIDEComponent } from './exam-ide/exam-ide.component';
 import { CovalentCodeEditorModule } from '@covalent/code-editor';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
+import { DBService } from './services/DB.Service';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http'
 
 
   ],
+  providers:[DBService],
   declarations: [ExamSignUpComponent, ExamIDEComponent]
 })
 export class StudentModule { }
