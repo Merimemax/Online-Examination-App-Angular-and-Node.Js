@@ -8,7 +8,7 @@ import { AdmissionhomeComponent } from './admission-staff/admissionhome/admissio
 
 export const routes: Routes = [
   { path: 'addmissionstaff', component: AdmissionStaffComponent },
-  { path: 'admissionhome', component: AdmissionhomeComponent},
+  { path: 'admissionhome', component: AdmissionhomeComponent },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'student', loadChildren: './student/student.module#StudentModule' }
 ];

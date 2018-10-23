@@ -8,13 +8,7 @@ var sendJSONresponse = function (res, status, content) {
 };
 
 module.exports.register = function (req, res) {
-
-  // if(!req.body.name || !req.body.email || !req.body.password) {
-  //   sendJSONresponse(res, 400, {
-  //     "message": "All fields required"
-  //   });
-  //   return;
-  // }
+  
 
   var user = new User();
 
@@ -35,8 +29,6 @@ module.exports.register = function (req, res) {
 };
 
 module.exports.login = function (req, res) {
-
-  console.log("i made it so far server is called ");
   // if(!req.body.email || !req.body.password) {
   //   sendJSONresponse(res, 400, {
   //     "message": "All fields required"

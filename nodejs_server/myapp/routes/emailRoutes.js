@@ -25,7 +25,7 @@ router.post('/', function (req, res) {
     var mailOptions = {
       from: 'abemel26@gmail.com',
       to: this.email,
-      subject: 'Sending Email using Node.js',
+      subject: 'Sending Email using Node.js this suppose to work',
       text: `http://localhost:8000/api/takexam?email=${this.email}`
     };
     // send mail with defined transport object
