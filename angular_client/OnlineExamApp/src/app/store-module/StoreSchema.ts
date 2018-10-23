@@ -7,3 +7,7 @@ export interface ItimeSpent{
     questionNo:number;
     timeSpent:number;
 }
+ export interface Iprogress{
+    questionNo:number;
+    data:String;
+ }

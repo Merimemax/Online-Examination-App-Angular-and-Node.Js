@@ -21,7 +21,7 @@ export class TimeSpentDirective {
     if(this.e.nativeElement.id=="editor1"){
     this.timeSpent1+=Date.now()-this.timer1;
   this.actionService.addTimeSpentAction({questionNo:1,timeSpent:Math.floor(this.timeSpent1/1000)});
-console.log(this.actionService.getState().timeSpent);
+console.log(this.actionService.getState());
   }
     if(this.e.nativeElement.id=="editor2"){
       this.timeSpent2+=Date.now()-this.timer2;

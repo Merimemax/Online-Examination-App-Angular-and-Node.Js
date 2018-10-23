@@ -9,13 +9,15 @@ import {HttpClientModule} from '@angular/common/http'
 import { DBService } from './services/DB.Service';
 import { WindowRef } from './services/WindowRef';
 import { TimeSpentDirective } from './exam-ide/timespent.directive';
-import { pageLsitener } from './services/PageListener.service';
+
+
 @NgModule({
   imports: [
     CommonModule,
     CovalentCodeEditorModule,
     FormsModule,
     HttpClientModule
+    
     ,
       RouterModule.forChild([
       {path:'',component:ExamSignUpComponent,children:[
@@ -27,7 +29,7 @@ import { pageLsitener } from './services/PageListener.service';
 
 
   ],
-  providers:[DBService,WindowRef,pageLsitener],
+  providers:[DBService,WindowRef],
   declarations: [ExamSignUpComponent, ExamIDEComponent,TimeSpentDirective]
 })
 export class StudentModule { }
