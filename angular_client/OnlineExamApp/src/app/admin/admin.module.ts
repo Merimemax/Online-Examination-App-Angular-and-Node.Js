@@ -5,14 +5,15 @@ import { EvaluationComponent } from './evaluation/evaluation.component';
 import { CreatingExamComponent } from './creating-exam/creating-exam.component';
 import { ManagingStaffComponent } from './managing-staff/managing-staff.component';
 import { routing } from './adminRoutes'
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    FormsModule
   ],
   declarations: [
     AdminLoginComponent,

@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 import { AdmissionStaffComponent } from './admission-staff/admission-staff.component';
+import { AuthenticationService } from 'src/authentication.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from 'src/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,10 @@ import { AdmissionStaffComponent } from './admission-staff/admission-staff.compo
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
