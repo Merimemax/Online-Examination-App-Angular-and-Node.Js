@@ -8,7 +8,7 @@ import { Istudent } from '../Istudent';
   styleUrls: ['./admissionhome.component.css']
 })
 export class AdmissionhomeComponent implements OnInit {
-  pa
+  pageTitle='Student-Record';
   filteredStudents: Istudent[] = [];
   students: Istudent[] = [];
 
@@ -16,6 +16,94 @@ export class AdmissionhomeComponent implements OnInit {
 
   ngOnInit() {
     this.students = [
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      },
+      {
+        "studentId": 1,
+        "studentName": "Merih",
+        "Email": "merimemax@gmail.com",
+        "emailStatus":"sent",
+        "isAnswered": true,
+        "result": "pass"
+      }
 
 
     ]

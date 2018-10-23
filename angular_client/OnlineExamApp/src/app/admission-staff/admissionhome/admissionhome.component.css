@@ -3,7 +3,11 @@
 @import "~font-awesome/css/font-awesome.min.css"; */
 
 div.card-header {
- font-size: large;
+ font-size: 30px;
+ font-style:normal;
+ color:#337AB7;
+ text-align: center;
+
 }
 
 div.card {
