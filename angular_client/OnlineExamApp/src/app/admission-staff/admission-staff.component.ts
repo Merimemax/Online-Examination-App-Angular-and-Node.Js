@@ -24,9 +24,9 @@ export class AdmissionStaffComponent implements OnInit {
 
   }
   logInStaff() {
-    console.log("you will log in one day dont give up " + this.admissionStaff.value.email);
-    console.log("you will log in one day dont give up " + this.admissionStaff.value.password);
-    console.log("you will log in one day dont give up " + this.admissionStaff.value.rememberme);
+    console.log(this.admissionStaff.value.email);
+    console.log( this.admissionStaff.value.password);
+    console.log(this.admissionStaff.value.rememberme);
     this.router.navigate(['admissionhome']);
   }
 
