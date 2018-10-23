@@ -7,11 +7,16 @@ import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 import { AdmissionStaffComponent } from './admission-staff/admission-staff.component';
 import { UiModule } from './ui/ui.module';
+import { AuthenticationService } from 'src/authentication.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from 'src/auth-guard.service';
+import { AdmissionhomeComponent } from './admission-staff/admissionhome/admissionhome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdmissionStaffComponent
+    AdmissionStaffComponent,
+    AdmissionhomeComponent
   ],
   imports: [
     BrowserModule,
@@ -20,9 +25,11 @@ import { UiModule } from './ui/ui.module';
     
     routing,
     
-    UiModule
+    UiModule,
+    
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

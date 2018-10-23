@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService, TokenPayload } from '../../../authentication.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class AdminLoginComponent implements OnInit {
 
   admin: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router, private zone: NgZone) { }
+  constructor(private fb: FormBuilder, private router: Router, private zone: NgZone, private auth: AuthenticationService) { } //
 
   ngOnInit(): void {
     this.admin = this.fb.group({
@@ -19,16 +20,26 @@ export class AdminLoginComponent implements OnInit {
       rememberme: true
     });
   }
+
+
+  credentials: TokenPayload = {
+    email: '',
+    password: ''
+  };
+
+
   logInAdmin() {
-    console.log("you will log in one day dont give up " + this.admin.value.email);
-    console.log("you will log in one day dont give up " + this.admin.value.password);
-    console.log("you will log in one day dont give up " + this.admin.value.rememberme);
-    this.zone.run(() => this.router.navigate(['admin/home']));
-    // this.router.navigate(['admin/home']);
-  }
+    this.credentials.email = this.admin.value.email;
+    this.credentials.password = this.admin.value.password;
 
-  login() {
-    this.router.navigateByUrl('/admin/home');
+    console.log("email is recieved " + this.credentials.email);
+    console.log("email is recieved " + this.credentials.password);
 
+    this.auth.login(this.credentials).subscribe(() => {
+      this.zone.run(() => this.router.navigate(['admin/home']));
+    }, (err) => {
+      console.error(err);
+      console.log("Invalid user!")
+    });
   }
 }

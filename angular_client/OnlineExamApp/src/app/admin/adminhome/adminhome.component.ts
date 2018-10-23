@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserDetails, AuthenticationService } from 'src/authentication.service';
 
 @Component({
   selector: 'app-adminhome',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminhomeComponent implements OnInit {
 
-  constructor() { }
+  details: UserDetails;
 
+  constructor(private auth: AuthenticationService, private router: Router) { }
   ngOnInit() {
+    // this.auth.profile().subscribe(user => {
+    //   this.details = user;
+    // }, (err) => {
+    //   console.error(err);
+    // });
   }
 
+  logout() {
+    this.auth.logout()
+    this.router.navigate(['/admin'])
+  }
 }
