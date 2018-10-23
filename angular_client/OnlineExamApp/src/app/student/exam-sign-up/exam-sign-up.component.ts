@@ -12,7 +12,7 @@ import { ActionsService } from 'src/app/store-module/actions.service';
 })
 export class ExamSignUpComponent implements OnInit {
   @select('student') students:Observable<IStudent>;
-
+  
   firstName; lastName; Email;
 
   constructor(private actionService:ActionsService) { }

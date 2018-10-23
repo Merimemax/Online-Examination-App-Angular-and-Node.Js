@@ -1,5 +1,6 @@
-import {IStudent, ItimeSpent} from './StoreSchema'
+import {IStudent, ItimeSpent, Iprogress} from './StoreSchema'
 export interface IAppState{
     student:IStudent[];
     timeSpent:ItimeSpent[];
+    progress:Iprogress[];
 }

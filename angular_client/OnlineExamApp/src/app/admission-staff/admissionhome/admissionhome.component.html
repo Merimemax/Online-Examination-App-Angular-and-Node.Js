@@ -8,11 +8,7 @@
   <table class='table'>
     <thead>
       <tr>
-        <th> StudentName</th>
-          <!-- <button class='btn btn-primary' (click)='toggleImage()'>
-            {{showImage ? 'Hide' : 'Show'}} Image
-          </button> -->
-        
+        <th>StudentName</th>
         <th>Email</th>
         <th>emailStatus</th>
         <th>isAnswerd</th>
@@ -21,16 +17,7 @@
     </thead>
     <tbody>
       <tr *ngFor='let student of filteredStudents'>
-        <!-- <td>{{ student.studentName}}</td>
-        <td>
-          <a type="button" class="btn btn-primary" [routerLink]="['/students', student.studentId]">
-            {{ student.Email }}
-          </a>
-        </td>
-        <td>{{ student.emailStatus}}</td>
-        <td>{{ student.isAnswered }}</td>
-        <td>{{ student.result }}</td> -->
-
+        
         <td>{{ student.fristname}}</td>
         <td>
             <!-- [routerLink]="['/students', student.studentId]" -->

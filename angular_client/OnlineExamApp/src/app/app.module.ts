@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 import { AdmissionStaffComponent } from './admission-staff/admission-staff.component';
+import { UiModule } from './ui/ui.module';
 import { AuthenticationService } from 'src/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from 'src/auth-guard.service';
@@ -21,7 +22,11 @@ import { AdmissionhomeComponent } from './admission-staff/admissionhome/admissio
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    
     routing,
+    
+    UiModule,
+    
     HttpClientModule
   ],
   providers: [AuthenticationService, AuthGuardService],
