@@ -21,13 +21,25 @@
     </thead>
     <tbody>
       <tr *ngFor='let student of filteredStudents'>
-        <td>{{ student.studentName}}</td>
+        <!-- <td>{{ student.studentName}}</td>
         <td>
           <a type="button" class="btn btn-primary" [routerLink]="['/students', student.studentId]">
             {{ student.Email }}
           </a>
         </td>
         <td>{{ student.emailStatus}}</td>
+        <td>{{ student.isAnswered }}</td>
+        <td>{{ student.result }}</td> -->
+
+        <td>{{ student.fristname}}</td>
+        <td>
+            <!-- [routerLink]="['/students', student.studentId]" -->
+          
+          <button type="button" style="width: 190px" class="btn btn-primary" (click)='[sendEmail(student.email)]'>
+            {{ student.email }}
+          </button>
+    
+        <td>{{ student.status}}</td>
         <td>{{ student.isAnswered }}</td>
         <td>{{ student.result }}</td>
       </tr>

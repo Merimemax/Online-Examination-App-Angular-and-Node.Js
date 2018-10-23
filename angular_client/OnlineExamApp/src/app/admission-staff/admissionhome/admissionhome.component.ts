@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { staffService } from '../admission.service';
 import { Istudent } from '../Istudent';
+import { AdmissionstaffDBService } from '../admissionstaff-db.service';
+import { HttpClient } from '@angular/common/http';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-admissionhome',
@@ -9,104 +12,19 @@ import { Istudent } from '../Istudent';
 })
 export class AdmissionhomeComponent implements OnInit {
   pageTitle='Student-Record';
-  filteredStudents: Istudent[] = [];
+  filteredStudents;
   students: Istudent[] = [];
 
-  constructor(private staffService: staffService) { }
+  constructor(private staffService: staffService, private adstaffDB: AdmissionstaffDBService, private emailService: EmailService) {
+  
+  }
 
   ngOnInit() {
-    this.students = [
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      },
-      {
-        "studentId": 1,
-        "studentName": "Merih",
-        "Email": "merimemax@gmail.com",
-        "emailStatus":"sent",
-        "isAnswered": true,
-        "result": "pass"
-      }
-
-
-    ]
+    this.students = this.adstaffDB.getStudents();
     this.filteredStudents = this.students;
+  }
+
+  sendEmail(email){
+    this.emailService.sendExamEmailAdress(email);
   }
 }
