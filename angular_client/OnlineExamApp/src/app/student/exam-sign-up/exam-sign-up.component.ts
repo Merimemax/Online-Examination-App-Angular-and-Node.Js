@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{select} from 'ng2-redux';
 import { Observable} from 'rxjs';
 
-import { IStudent } from 'src/app/store-module/student';
+import { IStudent } from 'src/app/store-module/StoreSchema';
 import { ActionsService } from 'src/app/store-module/actions.service';
 
 @Component({
@@ -17,8 +17,10 @@ export class ExamSignUpComponent implements OnInit {
 
   constructor(private actionService:ActionsService) { }
   addStudent(){
-    this.actionService.addStudentAction({firstName:this.firstName,lastName:this.lastName,Email:this.Email});
-    console.log( this.actionService.getState());
+    this.actionService.addStudent({firstName:this.firstName,lastName:this.lastName,Email:this.Email});
+    //  this.actionService.addTimeSpentAction({questionNo:1,timeSpent:3});
+
+    // console.log(this.actionService.getState().timeSpent);
   }
 
   ngOnInit() {

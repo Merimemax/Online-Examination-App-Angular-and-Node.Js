@@ -1,15 +1,22 @@
 <h1>Exam Questions</h1>
+<div *ngIf ="!checkBrowser()">{{message}}</div>
+<div *ngIf ="outOfTime"><p>You have run out of Time!</p></div>
 
-<div *ngFor="let question of questions" > 
-<div>
+<div *ngIf ="checkBrowser() && !outOfTime ">
+<div  *ngFor="let question of questions" > 
+<div >
   {{question.examnumber}}   {{question.title}} 
 </div>
 
 <div>
   {{question.question}}   
 </div>
-<div>
+<input type="text"    #input >
+<div  attr.id="editor{{question.examnumber}}"   >
+  
   <td-code-editor 
+  attr.id="editor{{question.examnumber}}"
+  appTimeSpent
   style="height: 200px" 
   editorStyle="border:0;"
   flex 
@@ -17,12 +24,17 @@
   language="javascript"
   automaticLayout
   [editorOptions]="{ fontSize:20}"
-  [(ngModel)]="model"
-  (change)="callBackFunc()">
+  [(ngModel)]="model1"
+  (change)="callBackFunc()"
+  
+     >
+  
 </td-code-editor>
 
 </div>
 </div>
+</div>
+
 
 
 
