@@ -28,7 +28,7 @@ module.exports = {
      */
     show: function (req, res) {
         var id = req.params.id;
-        examModel.findOne({_id: id}, function (err, exam) {
+        examModel.findOne({ _id: id }, function (err, exam) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting exam.',
@@ -48,14 +48,16 @@ module.exports = {
      * examController.create()
      */
     create: function (req, res) {
+        console.log("i made it to the exam controller");
         var exam = new examModel({
-			title : req.body.title,
-			question : req.body.question,
-			examnumber : req.body.examnumber
+            title: req.body.title,
+            question: req.body.question,
+            examnumber: req.body.examnumber
 
         });
 
         exam.save(function (err, exam) {
+
             if (err) {
                 return res.status(500).json({
                     message: 'Error when creating exam',
@@ -71,7 +73,7 @@ module.exports = {
      */
     update: function (req, res) {
         var id = req.params.id;
-        examModel.findOne({_id: id}, function (err, exam) {
+        examModel.findOne({ _id: id }, function (err, exam) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting exam',
@@ -85,9 +87,9 @@ module.exports = {
             }
 
             exam.title = req.body.title ? req.body.title : exam.title;
-			exam.question = req.body.question ? req.body.question : exam.question;
-			exam.examnumber = req.body.examnumber ? req.body.examnumber : exam.examnumber;
-			
+            exam.question = req.body.question ? req.body.question : exam.question;
+            exam.examnumber = req.body.examnumber ? req.body.examnumber : exam.examnumber;
+
             exam.save(function (err, exam) {
                 if (err) {
                     return res.status(500).json({
