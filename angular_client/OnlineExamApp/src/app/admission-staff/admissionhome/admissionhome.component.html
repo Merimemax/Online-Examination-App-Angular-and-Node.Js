@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class='table-responsive'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th> StudentName</th>
+          <!-- <button class='btn btn-primary' (click)='toggleImage()'>
+            {{showImage ? 'Hide' : 'Show'}} Image
+          </button> -->
+        
+        <th>Email</th>
+        <th>emailStatus</th>
+        <th>isAnswerd</th>
+        <th>result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let student of filteredStudents'>
+        <td>{{ student.studentName}}</td>
+        <td>
+          <a type="button" class="btn btn-primary" [routerLink]="['/students', student.studentId]">
+            {{ student.Email }}
+          </a>
+        </td>
+        <td>{{ student.emailStatus}}</td>
+        <td>{{ student.isAnswered }}</td>
+        <td>{{ student.result }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
