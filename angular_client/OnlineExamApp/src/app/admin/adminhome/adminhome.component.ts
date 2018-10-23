@@ -12,7 +12,6 @@ export class AdminhomeComponent implements OnInit {
   details: UserDetails;
 
   constructor(private auth: AuthenticationService, private router: Router) { }
-
   ngOnInit() {
     // this.auth.profile().subscribe(user => {
     //   this.details = user;
@@ -22,7 +21,6 @@ export class AdminhomeComponent implements OnInit {
   }
 
   logout() {
-    console.log("we can log out now");
     this.auth.logout()
     this.router.navigate(['/admin'])
   }
