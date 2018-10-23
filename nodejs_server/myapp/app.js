@@ -9,6 +9,7 @@ const adminRouter = require('./routes/studentRoutes');
 const admissionStaffRouter = require('./routes/admissionstaffRoutes');
 const studentRouter = require('./routes/studentRoutes');
 const examRouter = require('./routes/examRoutes');
+const emailRouter = require('./routes/emailRoutes');
 
 const mongoose = require('mongoose');
 const mongodbUri = 'mongodb://merih:me2am1@ds029630.mlab.com:29630/online_examination';
@@ -52,6 +53,7 @@ app.use('/admin', adminRouter);
 app.use('/staff', admissionStaffRouter);
 app.use('/student', studentRouter);
 app.use('/exam', examRouter);
+app.use('/email', emailRouter);
 
 //my code
 //Initialise Passport before using the route middleware
