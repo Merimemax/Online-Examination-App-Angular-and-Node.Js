@@ -10,12 +10,9 @@ export class AdminService {
 
   private request(exam): void {
 
-    const url = 'http://localhost:8000/exam'
-
-    console.log(" from admin service ")
-
+    const url = 'http://localhost:8000/exam';
+    
     const headers = new HttpHeaders()
-      // .set('Authorization', 'my-auth-token')
       .set('Content-Type', 'application/json');
 
     this.http.post(url, JSON.stringify(exam), {

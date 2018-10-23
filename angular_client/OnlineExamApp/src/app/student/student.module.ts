@@ -7,6 +7,9 @@ import { CovalentCodeEditorModule } from '@covalent/code-editor';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import { DBService } from './services/DB.Service';
+import { WindowRef } from './services/WindowRef';
+import { TimeSpentDirective } from './exam-ide/timespent.directive';
+import { pageLsitener } from './services/PageListener.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,7 +27,7 @@ import { DBService } from './services/DB.Service';
 
 
   ],
-  providers:[DBService],
-  declarations: [ExamSignUpComponent, ExamIDEComponent]
+  providers:[DBService,WindowRef,pageLsitener],
+  declarations: [ExamSignUpComponent, ExamIDEComponent,TimeSpentDirective]
 })
 export class StudentModule { }

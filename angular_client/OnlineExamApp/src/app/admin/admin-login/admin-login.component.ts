@@ -39,7 +39,7 @@ export class AdminLoginComponent implements OnInit {
       this.zone.run(() => this.router.navigate(['admin/home']));
     }, (err) => {
       console.error(err);
-      console.log("emaa metkek")
+      console.log("Invalid user!")
     });
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Staff } from './staff';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class AdmissionStaffComponent implements OnInit {
   staff_credential: Staff;
   admissionStaff: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.admissionStaff = this.fb.group({
@@ -26,7 +27,7 @@ export class AdmissionStaffComponent implements OnInit {
     console.log("you will log in one day dont give up " + this.admissionStaff.value.email);
     console.log("you will log in one day dont give up " + this.admissionStaff.value.password);
     console.log("you will log in one day dont give up " + this.admissionStaff.value.rememberme);
-
+    this.router.navigate(['admissionhome']);
   }
 
 }

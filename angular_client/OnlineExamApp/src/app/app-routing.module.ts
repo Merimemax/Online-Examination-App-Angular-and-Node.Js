@@ -4,9 +4,11 @@ import { AdmissionStaffComponent } from './admission-staff/admission-staff.compo
 import { NgReduxModule, NgRedux } from 'ng2-redux';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SharedModuleModule } from './store-module/shared-module.module';
+import { AdmissionhomeComponent } from './admission-staff/admissionhome/admissionhome.component';
 
 export const routes: Routes = [
   { path: 'addmissionstaff', component: AdmissionStaffComponent },
+  { path: 'admissionhome', component: AdmissionhomeComponent},
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'student', loadChildren: './student/student.module#StudentModule' }
 ];

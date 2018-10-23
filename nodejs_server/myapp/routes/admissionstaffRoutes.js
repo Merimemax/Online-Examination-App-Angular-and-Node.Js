@@ -17,6 +17,7 @@ router.get('/:id', admissionstaffController.show);
  */
 router.post('/', admissionstaffController.create);
 
+
 /*
  * PUT
  */
