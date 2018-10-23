@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 import { AdmissionStaffComponent } from './admission-staff/admission-staff.component';
+import { UiModule } from './ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { AdmissionStaffComponent } from './admission-staff/admission-staff.compo
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    routing
+    
+    routing,
+    
+    UiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

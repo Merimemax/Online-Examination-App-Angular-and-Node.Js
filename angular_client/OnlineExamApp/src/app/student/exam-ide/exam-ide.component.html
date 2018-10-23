@@ -11,7 +11,7 @@
 <div>
   {{question.question}}   
 </div>
-<input type="text"    #input >
+
 <div  attr.id="editor{{question.examnumber}}"   >
   
   <td-code-editor 
@@ -24,8 +24,8 @@
   language="javascript"
   automaticLayout
   [editorOptions]="{ fontSize:20}"
-  [(ngModel)]="model1"
-  (change)="callBackFunc()"
+  [(ngModel)]="this['model' + question.examnumber]"
+  (input)="this['callBackFunc' + question.examnumber]()"
   
      >
   
