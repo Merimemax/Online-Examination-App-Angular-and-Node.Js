@@ -64,16 +64,19 @@ module.exports.login = function (req, res) {
 
 
 module.exports.examlink = function (req, res) {
-    
- console.log(id);
- studentModel.findOne({ email: id }, function (err, student) {
+    var id=req.query.email;
+
+ 
+ studentModel.findOne({email: id}, function (err, student) {
         if (err) {
+          console.log(err)
             return res.status(500).json({
                 message: 'Error when getting student.',
                 error: err
             });
         }
         if (student) {
+          console.log("here")
        
 var payload = { email: id };
 var secret = Buffer.from('fe1a1915a379f3be5394b64d14794932', 'hex')

@@ -12,24 +12,15 @@ export class EmailAuthGuard implements CanActivate {
             params: {
               email: route.queryParams.email,
               }}).subscribe(data=>{
-                  
+                  console.log(data);
 
               },err=>{
-
+console.log(err)
               });
 
-      //  this.router.navigate(['/exam'], { queryParams: { email: route.queryParams.email }});
+     
         return false;
-        // this.http.get(`http://localhost:8000/exam`,{
-        //     params: {
-        //       email: route.queryParams.email,
-        //       }}).subscribe(data=>{
-        //           return true;
-
-        //       },err=>{
-
-        //       });
-
+      
 
 
         // if (localStorage.getItem('currentUser')) {
