@@ -5,6 +5,7 @@ import { Observable} from 'rxjs';
 import { IStudent } from 'src/app/store-module/StoreSchema';
 import { ActionsService } from 'src/app/store-module/actions.service';
 import { DBService } from '../services/DB.Service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-exam-sign-up',
@@ -16,7 +17,7 @@ export class ExamSignUpComponent implements OnInit {
   
   firstName; lastName; Email;
 
-  constructor(private actionService:ActionsService,private dbService:DBService) { }
+  constructor(private actionService:ActionsService,private dbService:DBService,private router: Router) { }
   
   addStudent(){
   //  this.actionService.addStudent({firstName:this.firstName,lastName:this.lastName,Email:this.Email});
@@ -30,7 +31,9 @@ export class ExamSignUpComponent implements OnInit {
 			result : false
       }
     ).subscribe(
-      data=>{ console.log(data)},err=>console.error(err));;
+      data=>{ console.log(data)},err=>console.error(err));
+
+      this.router.navigateByUrl('/student/register');
   }
 
   ngOnInit() {

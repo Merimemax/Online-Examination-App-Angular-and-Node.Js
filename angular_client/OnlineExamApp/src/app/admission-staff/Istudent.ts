@@ -6,7 +6,7 @@ export interface Istudent {
 	email : String,
 	status : String,
 	isAnswered : Boolean,
-  result : Boolean
+  result : Boolean//string
 
   // studentName: string;
   // Email: string;

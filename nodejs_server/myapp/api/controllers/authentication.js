@@ -2,7 +2,7 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var studentModel = require('../../models/studentModel.js');
-
+var jwt = require('jwt-simple');
 var sendJSONresponse = function (res, status, content) {
   res.status(status);
   res.json(content);
@@ -64,26 +64,34 @@ module.exports.login = function (req, res) {
 
 
 module.exports.examlink = function (req, res) {
+    var id=req.query.email;
 
 
- console.log("reached");
-    var id = req.query.email;
-    
- console.log(id);
-  //   examModel.findOne({ _id: id }, function (err, exam) {
-  //       if (err) {
-  //           return res.status(500).json({
-  //               message: 'Error when getting exam.',
-  //               error: err
-  //           });
-  //       }
-  //       if (!exam) {
-  //           return res.status(404).json({
-  //               message: 'No such exam'
-  //           });
-  //       }
-  //       return res.json(exam);
-  //   });
+    console.log(id)
+ studentModel.findOne({email: id}, function (err, student) {
+   
+        if (err) {
+          console.log(err)
+            return res.status(500).json({
+                message: 'Error when getting student.',
+                error: err
+            });
+        }
+        if (student) {
+          console.log("here")
+       
+var payload = { email: id };
+var secret = Buffer.from('fe1a1915a379f3be5394b64d14794932', 'hex')
+var token = jwt.encode(payload, secret);
+return res.json({
+  token : token,
+   student: student.toJSON()
+});
+
+       
+        }
+       
+    });
 
 
 
