@@ -1,7 +1,9 @@
 <h1>Exam Questions</h1>
 
-<div *ngIf="flag | async; let flag; else loading">
-  <ng-template #loading>Loading User Data...</ng-template>
+<div *ngIf="!flag" > loading .... </div>
+<div *ngIf="flag" > 
+  <h1>Exam Questions</h1>
+</div>
 <div *ngIf ="!checkBrowser()">{{message}}</div>
 <div *ngIf ="outOfTime"><p>You have run out of Time!</p></div>
 

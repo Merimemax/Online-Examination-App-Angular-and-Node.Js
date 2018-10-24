@@ -18,7 +18,7 @@ module.exports = {
                     error: err
                 });
             }
-console.log(examModel);
+
 
             return res.json(exams);
         });

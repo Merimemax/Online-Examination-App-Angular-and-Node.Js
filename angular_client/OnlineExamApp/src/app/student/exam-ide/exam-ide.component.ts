@@ -42,7 +42,7 @@ export class ExamIDEComponent implements OnInit,OnDestroy {
   message:string;
   outOfTime:Boolean;
   questions;
-  flag;email;
+  flag=false;email;
   constructor(private db:DBService,private _window:WindowRef,private pagelsitener:pageLsitener,private http:HttpClient,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -52,11 +52,12 @@ export class ExamIDEComponent implements OnInit,OnDestroy {
   this.checkTime();
      this.checkToken();
    }
+
 checkToken(){
   this.route.queryParams
       .filter(params => params.email)
       .subscribe(params => {
-                this.email = params.order;
+                this.email = params.email;
         });
   this.http.get('http://localhost:8000/api/takexam',{
     params: {

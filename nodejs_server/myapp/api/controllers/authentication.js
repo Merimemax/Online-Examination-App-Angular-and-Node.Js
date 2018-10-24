@@ -66,8 +66,11 @@ module.exports.login = function (req, res) {
 module.exports.examlink = function (req, res) {
     var id=req.query.email;
 
- 
+
+    console.log(id)
  studentModel.findOne({email: id}, function (err, student) {
+   
+  
         if (err) {
           console.log(err)
             return res.status(500).json({
