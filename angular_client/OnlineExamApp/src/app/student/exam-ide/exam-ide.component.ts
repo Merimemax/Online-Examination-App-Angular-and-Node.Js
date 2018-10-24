@@ -43,6 +43,7 @@ export class ExamIDEComponent implements OnInit,OnDestroy {
   outOfTime:Boolean;
   questions;
   flag=false;email;
+  flagerr=false;
   constructor(private db:DBService,private _window:WindowRef,private pagelsitener:pageLsitener,private http:HttpClient,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -63,9 +64,11 @@ checkToken(){
     params: {
       email: this.email,
       }}).subscribe(data=>{
+        console.log(data)
       this.flag=true;
 
       },err=>{
+        this.flagerr=true;
     console.log(err)
       });
 }

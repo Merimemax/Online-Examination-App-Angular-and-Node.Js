@@ -70,7 +70,6 @@ module.exports.examlink = function (req, res) {
     console.log(id)
  studentModel.findOne({email: id}, function (err, student) {
    
-  
         if (err) {
           console.log(err)
             return res.status(500).json({
