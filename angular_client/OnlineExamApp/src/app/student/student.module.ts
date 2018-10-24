@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http'
 import { DBService } from './services/DB.Service';
 import { WindowRef } from './services/WindowRef';
 import { TimeSpentDirective } from './exam-ide/timespent.directive';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { EmailAuthGuard } from './services/EmailAuthGuard';
 
 
 @NgModule({
@@ -23,13 +25,14 @@ import { TimeSpentDirective } from './exam-ide/timespent.directive';
       {path:'',component:ExamSignUpComponent,children:[
         
       ] },
-      {path:'exam',component:ExamIDEComponent}
+      {path:'exam',component:ExamIDEComponent},
+      { path: 'tryexam', component: ErrorPageComponent, canActivate: [EmailAuthGuard] }
       
     ])
 
 
   ],
-  providers:[DBService,WindowRef],
-  declarations: [ExamSignUpComponent, ExamIDEComponent,TimeSpentDirective]
+  providers:[DBService,WindowRef,EmailAuthGuard],
+  declarations: [ExamSignUpComponent, ExamIDEComponent,TimeSpentDirective, ErrorPageComponent]
 })
 export class StudentModule { }

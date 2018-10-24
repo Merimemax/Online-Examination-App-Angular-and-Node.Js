@@ -22,6 +22,17 @@ export class AdmistaffService {
       console.log(data);
     });
   }
+
+  staff: IadmissionStaff[] = [];
+  public getStaff() {
+    this.http.get<any>('http://localhost:8000/staff').subscribe((res) => {
+      res.forEach(element => {
+        console.log("element " + JSON.stringify(element));// js value to json string
+        this.staff.push(element);
+      });
+    });
+    return this.staff;
+  }
 }
 
 export interface IadmissionStaff {

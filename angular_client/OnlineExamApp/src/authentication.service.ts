@@ -88,17 +88,20 @@ export class AuthenticationService {
   }
 
   public login(user: TokenPayload): Observable<any> {
-    console.log("thanks it worked token " + user.name);
+    console.log(user.name);
+    window.localStorage.setItem("username", user.name);
     return this.request('post', 'login', user);
   }
 
   public profile(): Observable<any> {
     return this.request('get', 'profile');
+    
   }
 
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
+    window.localStorage.removeItem("username");
     this.router.navigateByUrl('/');
   }
 }

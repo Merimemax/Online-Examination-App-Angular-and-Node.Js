@@ -9,12 +9,14 @@ import { UserDetails, AuthenticationService } from 'src/authentication.service';
 })
 export class AdminhomeComponent implements OnInit {
 
-  details: UserDetails;
+  user: string = "merih";
 
   constructor(private auth: AuthenticationService, private router: Router) { }
   ngOnInit() {
+
+    this.user = window.localStorage.getItem('username');
     // this.auth.profile().subscribe(user => {
-    //   this.details = user;
+    // this.user = user.name;
     // }, (err) => {
     //   console.error(err);
     // });

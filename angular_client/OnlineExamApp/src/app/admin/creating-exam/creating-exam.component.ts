@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AdminService, Exam } from '../admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creating-exam',
@@ -9,6 +10,7 @@ import { AdminService, Exam } from '../admin.service';
 })
 export class CreatingExamComponent implements OnInit {
   exam: FormGroup;
+  examQeustions: Exam[];
   constructor(private fb: FormBuilder, private admin: AdminService) { }
 
   ngOnInit() {
@@ -17,6 +19,7 @@ export class CreatingExamComponent implements OnInit {
       examquestion: [''],
       examnumber: ['4']
     })
+    this.examQeustions = this.admin.getExams();
   }
   newExam: Exam = {
     title: '',
@@ -29,6 +32,12 @@ export class CreatingExamComponent implements OnInit {
     this.newExam.examnumber = this.exam.value.examnumber;
 
     this.admin.createExam(this.newExam)
+    window.location.reload();
+  }
+  deletExam(examnumber) {
+
+    this.examQeustions.splice(examnumber)
+
   }
 
 }

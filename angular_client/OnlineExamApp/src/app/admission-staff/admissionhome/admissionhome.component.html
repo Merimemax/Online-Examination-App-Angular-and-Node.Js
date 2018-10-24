@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<div class="card-header"> {{pageTitle}}</div>
-<hr>
-<hr>
-<div class='table-responsive'>
+<div class="card-header"> {{pageTitle}}
+  <button style="float: right;" class="btn" (click)='logout()'> Log out</button>
+</div>
+
+<div class='table-responsive' style="width: 80%; margin: auto;">
   <table class='table'>
     <thead>
       <tr>
@@ -17,15 +18,15 @@
     </thead>
     <tbody>
       <tr *ngFor='let student of filteredStudents'>
-        
+
         <td>{{ student.fristname}}</td>
         <td>
-            <!-- [routerLink]="['/students', student.studentId]" -->
-          
+          <!-- [routerLink]="['/students', student.studentId]" -->
+
           <button type="button" style="width: 190px" class="btn btn-primary" (click)='[sendEmail(student.email)]'>
             {{ student.email }}
           </button>
-    
+
         <td>{{ student.status}}</td>
         <td>{{ student.isAnswered }}</td>
         <td>{{ student.result }}</td>
