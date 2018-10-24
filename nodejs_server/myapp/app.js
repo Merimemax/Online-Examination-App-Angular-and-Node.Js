@@ -12,7 +12,8 @@ const examRouter = require('./routes/examRoutes');
 const emailRouter = require('./routes/emailRoutes');
 
 const mongoose = require('mongoose');
-const mongodbUri = 'mongodb://merih:me2am1@ds029630.mlab.com:29630/online_examination';
+// const mongodbUri = 'mongodb://merih:me2am1@ds029630.mlab.com:29630/online_examination';
+const mongodbUri = 'mongodb://localhost:27017/online_examination';
 
 // working for token
 var passport = require('passport');

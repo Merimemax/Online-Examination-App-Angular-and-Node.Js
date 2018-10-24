@@ -15,6 +15,6 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
-router.get('/takexam', ctrlAuth.examlink);
+router.get('/takexam/', ctrlAuth.examlink);
 
 module.exports = router;
