@@ -19,6 +19,7 @@ module.exports = {
                 });
             }
 console.log(examModel);
+
             return res.json(exams);
         });
     },

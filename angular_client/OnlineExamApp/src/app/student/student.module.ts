@@ -26,7 +26,8 @@ import { EmailAuthGuard } from './services/EmailAuthGuard';
         
       ] },
       {path:'exam',component:ExamIDEComponent},
-      { path: 'tryexam', component: ErrorPageComponent, canActivate: [EmailAuthGuard] }
+      //{ path: 'tryexam', component: ErrorPageComponent, canActivate: [EmailAuthGuard] },
+      { path: 'tryexam', redirectTo: 'exam', pathMatch: 'full' }
       
     ])
 

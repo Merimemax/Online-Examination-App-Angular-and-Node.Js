@@ -15,7 +15,7 @@ export class EmailAuthGuard implements CanActivate {
                   console.log(data);
 
               },err=>{
-console.log(err)
+            console.log(err)
               });
 
      
