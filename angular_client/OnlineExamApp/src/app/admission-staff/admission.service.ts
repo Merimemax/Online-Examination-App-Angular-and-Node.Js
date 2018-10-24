@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';//taps to the observable stream and 
+// allows us to look into the immidate value in the stream with out transforming also uses for debuging
+
 
 import { Istudent } from './Istudent';
 
@@ -9,13 +11,14 @@ import { Istudent } from './Istudent';
   providedIn: 'root'
 })
 export class staffService {
+  //qqqqq
   private studentUrl = 'api/students/students.json';
 
   constructor(private http: HttpClient) { }
-
+  
   getStudents(): Observable<Istudent[]> {
     return this.http.get<Istudent[]>(this.studentUrl).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),//converts object to json string
+      tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
