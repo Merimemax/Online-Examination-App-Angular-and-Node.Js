@@ -15,7 +15,7 @@ export class staffService {
 
   getStudents(): Observable<Istudent[]> {
     return this.http.get<Istudent[]>(this.studentUrl).pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
+      tap(data => console.log('All: ' + JSON.stringify(data))),//converts object to json string
       catchError(this.handleError)
     );
   }

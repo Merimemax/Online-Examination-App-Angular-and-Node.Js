@@ -9,5 +9,9 @@ export class DBService{
        return  this.http.get('http://localhost:8000/exam');
         
     }
-
+    addStudent(student){
+        return  this.http.post('http://localhost:8000/student',student);
+         
+     }
+ 
 }
