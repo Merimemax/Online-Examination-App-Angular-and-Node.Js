@@ -35,7 +35,9 @@ export class CreatingExamComponent implements OnInit {
     window.location.reload();
   }
   deletExam(examnumber) {
-    console.log(examnumber);
+
+    this.examQeustions.splice(examnumber)
+
   }
 
 }

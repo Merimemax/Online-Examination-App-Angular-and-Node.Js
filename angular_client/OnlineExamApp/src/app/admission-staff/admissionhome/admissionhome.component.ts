@@ -4,6 +4,8 @@ import { Istudent } from '../Istudent';
 import { AdmissionstaffDBService } from '../admissionstaff-db.service';
 import { HttpClient } from '@angular/common/http';
 import { EmailService } from '../email.service';
+import { AuthenticationService } from 'src/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admissionhome',
@@ -11,12 +13,12 @@ import { EmailService } from '../email.service';
   styleUrls: ['./admissionhome.component.css']
 })
 export class AdmissionhomeComponent implements OnInit {
-  pageTitle='Student-Record';
+  pageTitle = 'Student-Record';
   filteredStudents;
   students: Istudent[] = [];
 
-  constructor(private staffService: staffService, private adstaffDB: AdmissionstaffDBService, private emailService: EmailService) {
-  
+  constructor(private staffService: staffService, private adstaffDB: AdmissionstaffDBService,
+    private emailService: EmailService, private auth: AuthenticationService, private router: Router) {
   }
 
   ngOnInit() {
@@ -24,7 +26,12 @@ export class AdmissionhomeComponent implements OnInit {
     this.filteredStudents = this.students;
   }
 
-  sendEmail(email){
+  sendEmail(email) {
     this.emailService.sendExamEmailAdress(email);
+  }
+
+  logout() {
+    this.auth.logout()
+    this.router.navigate(['/admissionstaff'])
   }
 }

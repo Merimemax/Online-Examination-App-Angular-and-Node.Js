@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Staff } from './staff';
 import { Router } from '@angular/router';
+import { TokenPayload, AuthenticationService } from 'src/authentication.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class AdmissionStaffComponent implements OnInit {
   staff_credential: Staff;
   admissionStaff: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
     this.admissionStaff = this.fb.group({
@@ -21,15 +22,24 @@ export class AdmissionStaffComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(3)]],
       rememberme: true
     });
-
   }
 
-  //qqqq
+  credentials: TokenPayload = {
+    email: '',
+    name: '',
+    password: ''
+  };
   logInStaff() {
-    console.log(this.admissionStaff.value.email);
-    console.log( this.admissionStaff.value.password);
-    console.log(this.admissionStaff.value.rememberme);
-    this.router.navigate(['admissionhome']);
+    this.credentials.email = this.admissionStaff.value.email;
+    this.credentials.password = this.admissionStaff.value.password;
+
+    this.auth.login(this.credentials).subscribe(() => {
+      this.router.navigate(['admissionhome']);
+    }, (err) => {
+      console.error(err);
+      console.log("Invalid user!")
+    });
+
   }
 
 }

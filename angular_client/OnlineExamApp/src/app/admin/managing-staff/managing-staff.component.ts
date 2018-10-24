@@ -25,6 +25,9 @@ export class ManagingStaffComponent implements OnInit {
     })
     this.staffs = this.admistaff.getStaff();
   }
+  deletStaff(examnumber) {
+    this.staffs.splice(examnumber)
+  }
   credentials: TokenPayload = {
     email: '',
     name: '',
