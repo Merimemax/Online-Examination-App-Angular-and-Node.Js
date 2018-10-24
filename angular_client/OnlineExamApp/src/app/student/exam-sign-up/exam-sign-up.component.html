@@ -1,9 +1,37 @@
-First Name:<input type="text" (input)="firstName=$event.target.value" ><br><br>
+<!-- First Name:<input type="text" (input)="firstName=$event.target.value" ><br><br>
 Last Name:<input type="text" (input)="lastName=$event.target.value"><br><br>
 Email:<input type="text" (input)="Email=$event.target.value"><br><br>
-<input type="submit" value="Sign Up" (click)="addStudent()">
+<input type="submit" value="Sign Up" (click)="addStudent()"> -->
 
 
+<div class="col-md-6 col-md-offset-3">
+    <h2>Register</h2>
+  
+       <div>
+            <label for="FirstName">FirstName</label>
+            <input type="text" (input)="firstName=$event.target.value"  class="form-control" name="FirstName">
+            
+           
+        </div>
+        <div>
+            <label for="lastName">Password</label>
+            <input type="text" (input)="lastName=$event.target.value" class="form-control" name="lastName">
+            
+            
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" (input)="Email=$event.target.value" class="form-control" namw="email">
+          
+            
+        </div>
+        <br>
+        <div >
+            <button [disabled]="loading" class="btn btn-primary" (click)="addStudent()">Register</button>
+           
+        </div>
+   
+</div>
 
 <router-outlet></router-outlet>
 

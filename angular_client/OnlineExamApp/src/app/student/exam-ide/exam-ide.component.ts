@@ -4,7 +4,8 @@ import { WindowRef } from '../services/WindowRef';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Rx'
 import { ActionsService } from 'src/app/store-module/actions.service';
-
+import { HttpClient } from '@angular/common/http';
+import { Router  , ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class pageLsitener{
@@ -12,7 +13,8 @@ export class pageLsitener{
     start:number;
     timeoffBrowser:number=0;
 
-constructor(private renderer:Renderer2,private elemntRef:ElementRef,public actionService:ActionsService){
+constructor(private renderer:Renderer2,private elemntRef:ElementRef,public actionService:ActionsService,private route: ActivatedRoute){
+
      this.lisn=this.renderer.listen('document','visibilitychange',(e)=>{
         if(e.target.visibilityState=='hidden')
       this.start=e.timeStamp;
@@ -40,14 +42,36 @@ export class ExamIDEComponent implements OnInit,OnDestroy {
   message:string;
   outOfTime:Boolean;
   questions;
-  constructor(private db:DBService,private _window:WindowRef,private pagelsitener:pageLsitener) { }
+  flag=false;email;
+  flagerr=false;
+  constructor(private db:DBService,private _window:WindowRef,private pagelsitener:pageLsitener,private http:HttpClient,private route: ActivatedRoute) { }
 
   ngOnInit() {
-  this.db.getQuestion().subscribe(data=>{ this.questions=data});
+  this.db.getQuestion().subscribe(data=>{ 
+   
+    this.questions=data});
   this.checkTime();
-     
+     this.checkToken();
    }
 
+checkToken(){
+  this.route.queryParams
+      .filter(params => params.email)
+      .subscribe(params => {
+                this.email = params.email;
+        });
+  this.http.get('http://localhost:8000/api/takexam',{
+    params: {
+      email: this.email,
+      }}).subscribe(data=>{
+        console.log(data)
+      this.flag=true;
+
+      },err=>{
+        this.flagerr=true;
+    console.log(err)
+      });
+}
 
      ngOnDestroy() {
     if ( this.subscription && this.subscription instanceof Subscription) {

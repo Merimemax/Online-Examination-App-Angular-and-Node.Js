@@ -1,4 +1,9 @@
 <h1>Exam Questions</h1>
+
+<div *ngIf="flagerr" >You are not Authorized to view the exam .....</div>
+<div *ngIf="flag && !flagerr" > 
+ 
+
 <div *ngIf ="!checkBrowser()">{{message}}</div>
 <div *ngIf ="outOfTime"><p>You have run out of Time!</p></div>
 
@@ -36,6 +41,6 @@
 </div>
 
 
-
+</div>
 
 
