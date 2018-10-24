@@ -11,6 +11,7 @@ import { AdmistaffService, IadmissionStaff } from './admistaff.service';
 })
 export class ManagingStaffComponent implements OnInit {
   admissionstaff: FormGroup;
+  staffs: IadmissionStaff[];
   constructor(private fb: FormBuilder, private auth: AuthenticationService, private router: Router, private admistaff: AdmistaffService) { }
 
   ngOnInit() {
@@ -22,6 +23,7 @@ export class ManagingStaffComponent implements OnInit {
       password: ['*******'],
       hiredate: new Date()
     })
+    this.staffs = this.admistaff.getStaff();
   }
   credentials: TokenPayload = {
     email: '',
@@ -50,7 +52,8 @@ export class ManagingStaffComponent implements OnInit {
     this.admistaff.createAdmissionStaff(this.newAdmissonStaff);
 
     this.auth.register(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/admin/home/managestaff');
+      // this.router.navigateByUrl('/admin/home/managestaff');
+      window.location.reload();
     }, (err) => {
       console.error(err);
     });

@@ -27,7 +27,7 @@ module.exports = {
      */
     show: function (req, res) {
         var id = req.params.id;
-        studentModel.findOne({_id: id}, function (err, student) {
+        studentModel.findOne({ _id: id }, function (err, student) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting student.',
@@ -48,13 +48,16 @@ module.exports = {
      */
     create: function (req, res) {
         var student = new studentModel({
-			fristname : req.body.fristname,
-			lastname : req.body.lastname,
-			email : req.body.email,
-			status : req.body.status,
-			isAnswered : req.body.isAnswered,
-			result : req.body.result
-
+            fristname: req.body.fristname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            status: req.body.status,
+            isAnswered: req.body.isAnswered,
+            result: req.body.result,
+            questionandanswer: [{
+                question: 'Q. ',
+                Answer: 'A. '
+            }]
         });
 
         student.save(function (err, student) {
@@ -73,7 +76,7 @@ module.exports = {
      */
     update: function (req, res) {
         var id = req.params.id;
-        studentModel.findOne({_id: id}, function (err, student) {
+        studentModel.findOne({ _id: id }, function (err, student) {
             if (err) {
                 return res.status(500).json({
                     message: 'Error when getting student',
@@ -87,12 +90,12 @@ module.exports = {
             }
 
             student.fristname = req.body.fristname ? req.body.fristname : student.fristname;
-			student.lastname = req.body.lastname ? req.body.lastname : student.lastname;
-			student.email = req.body.email ? req.body.email : student.email;
-			student.status = req.body.status ? req.body.status : student.status;
-			student.isAnswered = req.body.isAnswered ? req.body.isAnswered : student.isAnswered;
-			student.result = req.body.result ? req.body.result : student.result;
-			
+            student.lastname = req.body.lastname ? req.body.lastname : student.lastname;
+            student.email = req.body.email ? req.body.email : student.email;
+            student.status = req.body.status ? req.body.status : student.status;
+            student.isAnswered = req.body.isAnswered ? req.body.isAnswered : student.isAnswered;
+            student.result = req.body.result ? req.body.result : student.result;
+
             student.save(function (err, student) {
                 if (err) {
                     return res.status(500).json({
