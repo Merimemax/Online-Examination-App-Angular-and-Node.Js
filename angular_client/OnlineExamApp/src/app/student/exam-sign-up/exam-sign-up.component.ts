@@ -4,6 +4,7 @@ import { Observable} from 'rxjs';
 
 import { IStudent } from 'src/app/store-module/StoreSchema';
 import { ActionsService } from 'src/app/store-module/actions.service';
+import { DBService } from '../services/DB.Service';
 
 @Component({
   selector: 'app-exam-sign-up',
@@ -15,12 +16,21 @@ export class ExamSignUpComponent implements OnInit {
   
   firstName; lastName; Email;
 
-  constructor(private actionService:ActionsService) { }
+  constructor(private actionService:ActionsService,private dbService:DBService) { }
+  
   addStudent(){
-    this.actionService.addStudent({firstName:this.firstName,lastName:this.lastName,Email:this.Email});
-    //  this.actionService.addTimeSpentAction({questionNo:1,timeSpent:3});
-
-    // console.log(this.actionService.getState().timeSpent);
+  //  this.actionService.addStudent({firstName:this.firstName,lastName:this.lastName,Email:this.Email});
+    this.dbService.addStudent(
+      {
+      fristname :this.firstName,
+			lastname : this.lastName,
+			email : this.Email,
+			status : 'not sent',
+			isAnswered : false,
+			result : false
+      }
+    ).subscribe(
+      data=>{ console.log(data)},err=>console.error(err));;
   }
 
   ngOnInit() {

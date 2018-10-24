@@ -19,14 +19,15 @@ router.post('/', function (req, res) {
       auth: {
         user: 'abemel26@gmail.com',
         pass: 'belive1221'
-      }
+      },
+      tls: { rejectUnauthorized: false }
     });
 
     var mailOptions = {
       from: 'abemel26@gmail.com',
       to: this.email,
       subject: 'Sending Email using Node.js this suppose to work',
-      text: `http://localhost:8000/api/takexam?email=${this.email}`
+      text: `http://localhost:4200/student/tryexam?email=${this.email}`
     };
     // send mail with defined transport object
     transporter.sendMail(mailOptions, function (error, info) {

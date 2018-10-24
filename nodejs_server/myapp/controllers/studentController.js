@@ -61,6 +61,7 @@ module.exports = {
         });
 
         student.save(function (err, student) {
+            console.log(student);
             if (err) {
                 return res.status(500).json({
                     message: 'Error when creating student',

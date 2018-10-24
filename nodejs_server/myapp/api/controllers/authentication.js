@@ -1,6 +1,7 @@
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var studentModel = require('../../models/studentModel.js');
 
 var sendJSONresponse = function (res, status, content) {
   res.status(status);
@@ -64,26 +65,50 @@ module.exports.login = function (req, res) {
 
 module.exports.examlink = function (req, res) {
 
-  passport.authenticate('local', function (err, user, info) {
-    var token;
 
-    // If Passport throws/catches an error
-    if (err) {
-      res.status(404).json(err);
-      return;
-    }
+ console.log("reached");
+    var id = req.query.email;
+    
+ console.log(id);
+  //   examModel.findOne({ _id: id }, function (err, exam) {
+  //       if (err) {
+  //           return res.status(500).json({
+  //               message: 'Error when getting exam.',
+  //               error: err
+  //           });
+  //       }
+  //       if (!exam) {
+  //           return res.status(404).json({
+  //               message: 'No such exam'
+  //           });
+  //       }
+  //       return res.json(exam);
+  //   });
 
-    // If a user is found
-    if (user) {
-      token = user.generateJwt();
-      res.status(200);
-      res.json({
-        "token": token
-      });
-    } else {
-      // If user is not found
-      res.status(401).json(info);
-    }
-  })(req, res);
+
+
+
+
+  // passport.authenticate('local', function (err, user, info) {
+  //   var token;
+
+  //   // If Passport throws/catches an error
+  //   if (err) {
+  //     res.status(404).json(err);
+  //     return;
+  //   }
+
+  //   // If a user is found
+  //   if (user) {
+  //     token = user.generateJwt();
+  //     res.status(200);
+  //     res.json({
+  //       "token": token
+  //     });
+  //   } else {
+  //     // If user is not found
+  //     res.status(401).json(info);
+  //   }
+  // })(req, res);
 
 };
